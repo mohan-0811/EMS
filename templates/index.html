@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Emergency Response Dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Smart, Priority-Aware Emergency Response System</h1>
+    <p>ETA-Optimized Resource Dispatch Dashboard</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Report an Emergency Incident</h2>
+      <form id="incident-form">
+        <div class="grid">
+          <label>
+            Emergency Type
+            <select name="emergency_type" required>
+              <option value="Medical">Medical</option>
+              <option value="Fire">Fire</option>
+              <option value="Rescue">Rescue</option>
+            </select>
+          </label>
+          <label>
+            Severity
+            <select name="severity" required>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+              <option value="Critical">Critical</option>
+            </select>
+          </label>
+          <label>
+            Victim Count
+            <input type="number" name="victim_count" min="0" value="1" required />
+          </label>
+          <label>
+            Time Sensitivity (minutes)
+            <input type="number" name="time_sensitivity" min="1" value="15" required />
+          </label>
+          <label>
+            Latitude
+            <input type="number" name="latitude" step="0.0001" value="40.7306" required />
+          </label>
+          <label>
+            Longitude
+            <input type="number" name="longitude" step="0.0001" value="-73.9866" required />
+          </label>
+        </div>
+        <label class="full">
+          Description (optional)
+          <textarea name="description" rows="3" placeholder="Describe the incident"></textarea>
+        </label>
+        <button type="submit">Submit Incident</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Dispatch Decision</h2>
+      <div id="dispatch-result" class="result">
+        <p>No incident submitted yet.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Available Resources</h2>
+      <div id="resource-list" class="resource-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Academic demo system using simulated traffic and ETA logic.</p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
